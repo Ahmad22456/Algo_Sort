@@ -1,0 +1,42 @@
+ALGORITHM insertion_sort(arr)
+
+VAR
+
+    i : INTEGER;
+    j : INTEGER;
+    current : INTEGER;
+    arr : ARRAY_OF INTEGER;
+    n : INTEGER := arr.length;
+
+BEGIN  
+
+    // Start from the second element (index 1) since the first element is considered sorted
+
+    FOR i FROM 1 TO n - 1 DO
+
+        // Pick the current element to be inserted into the sorted sequence
+
+        current := arr[i]
+        
+        // Initialize a pointer to move through the sorted part of the array
+
+        j := i - 1
+        
+        /* Compare the current element with the elements in the sorted part of the array
+         and move the elements greater than the current element one position ahead
+         */
+
+        WHILE (j >= 0 and arr[j] > current) DO
+
+            arr[j + 1] := arr[j]
+            j := j - 1
+        
+        // Insert the current element at the correct position in the sorted sequence
+
+        END_WHILE
+        
+        arr[j + 1] := current
+
+    END_FOR
+
+END
